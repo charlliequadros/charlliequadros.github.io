@@ -325,7 +325,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       function AppComponent() {
         _classCallCheck(this, AppComponent);
 
-        this.title = 'Desafio Univali';
+        this.title = '';
       }
 
       _createClass(AppComponent, [{
@@ -706,7 +706,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "span", 23);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "no maximo 50 caracter");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "\xC9 permitido at\xE9 50 caracteres.");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
       }
@@ -781,7 +781,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "span", 23);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Data nao pode ser mais que a data de vencimento");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Data n\xE3o pode ser maior que a data de vencimento");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
       }
@@ -802,13 +802,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.formBuilder = formBuilder;
         this.produtoService = produtoService;
         this.route = route;
-        this.option = {
-          prefix: ' ',
-          thousands: '',
-          decimal: ',',
-          precision: '0',
-          align: 'left'
-        };
         this.mask = '0*,000';
       }
 
@@ -818,7 +811,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _this = this;
 
           this.idProduto = Number(this.route.snapshot.paramMap.get('id'));
-          console.log(">>>>>>>>>>>>>>>>>>>", this.idProduto);
           if (this.idProduto != 0) this.produtoService.obterProdutoPorId(this.idProduto - 1).then(function (x) {
             _this.formulario.setValue(x);
           })["catch"](function (x) {});
@@ -834,9 +826,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             validators: [_ValidacoesCustomizadas_ProdutoPerecivelValidator__WEBPACK_IMPORTED_MODULE_5__["produtoPerecivelValidator"], _ValidacoesCustomizadas_dataFabricacaoValidator__WEBPACK_IMPORTED_MODULE_4__["dataFabricacaoValidator"], _ValidacoesCustomizadas_UnidadeValidator__WEBPACK_IMPORTED_MODULE_6__["UnidadeValidator"]]
           });
           $('input#input_text').characterCounter();
-          $(document).ready(function () {
-            materialize_css_dist_js_materialize__WEBPACK_IMPORTED_MODULE_2__["updateTextFields"]();
-          });
+          materialize_css_dist_js_materialize__WEBPACK_IMPORTED_MODULE_2__["updateTextFields"]();
           var elems = document.querySelectorAll('select');
           materialize_css_dist_js_materialize__WEBPACK_IMPORTED_MODULE_2__["FormSelect"].init(elems);
         }
@@ -973,7 +963,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](31, "span");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](32, "Produto perecivel?");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](32, "Produto perec\xEDvel?");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -1154,31 +1144,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! rxjs */
-    "./node_modules/rxjs/_esm2015/index.js");
-    /* harmony import */
-
-
-    var _produto_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var _produto_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! ../produto.service */
     "./src/app/produto.service.ts");
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/router */
     "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
     /* harmony import */
 
 
-    var angular_datatables__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var angular_datatables__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! angular-datatables */
     "./node_modules/angular-datatables/__ivy_ngcc__/index.js");
     /* harmony import */
 
 
-    var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! @angular/common */
     "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 
@@ -1317,8 +1301,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.route = route;
         this.listaProduto = [];
         this.dtOptions = {};
-        this.isDtInitialized = false;
-        this.dtTrigger = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
       }
 
       _createClass(ListagemComponent, [{
@@ -1329,11 +1311,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             pagingType: 'full_numbers',
             pageLength: 10,
             language: {
-              search: "pesquisar",
+              search: "Pesquisar",
               paginate: {
-                next: "Proximo",
+                next: "Próximo",
                 first: "Primeiro",
-                last: "Ultimo",
+                last: "Último",
                 previous: "Anterior"
               },
               info: "Monstrando _START_ à _END_ de _TOTAL_ produtos",
@@ -1353,7 +1335,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           this.produtoService.obterListaProduto().then(function (lista) {
             _this2.listaProduto = lista;
-            console.log(_this2.listaProduto);
           });
         }
       }, {
@@ -1362,14 +1343,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _this3 = this;
 
           this.produtoService.apagarProdutoPorId(this.idproduto).then(function (mensagem) {
-            console.log("deletar sucesso", _this3.idproduto, mensagem);
-
             _this3.obterListaProduto();
 
             _this3.closeModal();
           })["catch"](function (mensagem) {
-            console.log("deletar erro", _this3.idproduto, mensagem);
-
             _this3.closeModal();
           });
         }
@@ -1390,18 +1367,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           instance.close();
           window.location.reload();
         }
-      }, {
-        key: "GetCar",
-        value: function GetCar() {
-          window.location.reload();
-        }
       }]);
 
       return ListagemComponent;
     }();
 
     ListagemComponent.ɵfac = function ListagemComponent_Factory(t) {
-      return new (t || ListagemComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_produto_service__WEBPACK_IMPORTED_MODULE_3__["ProdutoService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]));
+      return new (t || ListagemComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_produto_service__WEBPACK_IMPORTED_MODULE_2__["ProdutoService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]));
     };
 
     ListagemComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
@@ -1543,8 +1515,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.listaProduto);
         }
       },
-      directives: [_angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterLinkWithHref"], angular_datatables__WEBPACK_IMPORTED_MODULE_5__["DataTableDirective"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgForOf"]],
-      pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_6__["DatePipe"]],
+      directives: [_angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterLinkWithHref"], angular_datatables__WEBPACK_IMPORTED_MODULE_4__["DataTableDirective"], _angular_common__WEBPACK_IMPORTED_MODULE_5__["NgForOf"]],
+      pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["DatePipe"]],
       styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2xpc3RhZ2VtL2xpc3RhZ2VtLmNvbXBvbmVudC5jc3MifQ== */"]
     });
     /*@__PURE__*/
@@ -1559,9 +1531,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }]
       }], function () {
         return [{
-          type: _produto_service__WEBPACK_IMPORTED_MODULE_3__["ProdutoService"]
+          type: _produto_service__WEBPACK_IMPORTED_MODULE_2__["ProdutoService"]
         }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
         }];
       }, null);
     })();

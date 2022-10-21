@@ -186,7 +186,7 @@ __webpack_require__.r(__webpack_exports__);
 
 class AppComponent {
     constructor() {
-        this.title = 'Desafio Univali';
+        this.title = '';
     }
     ngOnInit() {
         var elems = document.querySelectorAll('.sidenav');
@@ -374,7 +374,7 @@ function CadastroComponent_span_6_Template(rf, ctx) { if (rf & 1) {
 } }
 function CadastroComponent_span_7_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "span", 23);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "no maximo 50 caracter");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "\u00C9 permitido at\u00E9 50 caracteres.");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } }
 function CadastroComponent_span_25_Template(rf, ctx) { if (rf & 1) {
@@ -412,7 +412,7 @@ function CadastroComponent_div_34_Template(rf, ctx) { if (rf & 1) {
 } }
 function CadastroComponent_span_39_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "span", 23);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Data nao pode ser mais que a data de vencimento");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Data n\u00E3o pode ser maior que a data de vencimento");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } }
 const _c0 = function () { return { prefix: "R$ ", thousands: ".", decimal: "," }; };
@@ -421,22 +421,14 @@ class CadastroComponent {
         this.formBuilder = formBuilder;
         this.produtoService = produtoService;
         this.route = route;
-        this.option = { prefix: ' ',
-            thousands: '',
-            decimal: ',',
-            precision: '0',
-            align: 'left'
-        };
         this.mask = '0*,000';
     }
     ngOnInit() {
         this.idProduto = Number(this.route.snapshot.paramMap.get('id'));
-        console.log(">>>>>>>>>>>>>>>>>>>", this.idProduto);
         if (this.idProduto != 0)
             this.produtoService.obterProdutoPorId(this.idProduto - 1).then(x => {
                 this.formulario.setValue(x);
-            }).catch(x => {
-            });
+            }).catch(x => { });
         this.formulario = this.formBuilder.group({
             nome: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].maxLength(50)]],
             unidadeMedida: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]],
@@ -449,9 +441,7 @@ class CadastroComponent {
             validators: [_ValidacoesCustomizadas_ProdutoPerecivelValidator__WEBPACK_IMPORTED_MODULE_5__["produtoPerecivelValidator"], _ValidacoesCustomizadas_dataFabricacaoValidator__WEBPACK_IMPORTED_MODULE_4__["dataFabricacaoValidator"], _ValidacoesCustomizadas_UnidadeValidator__WEBPACK_IMPORTED_MODULE_6__["UnidadeValidator"]]
         });
         $('input#input_text').characterCounter();
-        $(document).ready(function () {
-            materialize_css_dist_js_materialize__WEBPACK_IMPORTED_MODULE_2__["updateTextFields"]();
-        });
+        materialize_css_dist_js_materialize__WEBPACK_IMPORTED_MODULE_2__["updateTextFields"]();
         var elems = document.querySelectorAll('select');
         materialize_css_dist_js_materialize__WEBPACK_IMPORTED_MODULE_2__["FormSelect"].init(elems);
     }
@@ -522,7 +512,7 @@ CadastroComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefine
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](29, "label");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](30, "input", 14);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](31, "span");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](32, "Produto perecivel?");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](32, "Produto perec\u00EDvel?");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -607,12 +597,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var materialize_css_dist_js_materialize__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! materialize-css/dist/js/materialize */ "./node_modules/materialize-css/dist/js/materialize.js");
 /* harmony import */ var materialize_css_dist_js_materialize__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(materialize_css_dist_js_materialize__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-/* harmony import */ var _produto_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../produto.service */ "./src/app/produto.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var angular_datatables__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! angular-datatables */ "./node_modules/angular-datatables/__ivy_ngcc__/index.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
-
+/* harmony import */ var _produto_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../produto.service */ "./src/app/produto.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var angular_datatables__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! angular-datatables */ "./node_modules/angular-datatables/__ivy_ngcc__/index.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 
 
 
@@ -686,16 +674,14 @@ class ListagemComponent {
         this.route = route;
         this.listaProduto = [];
         this.dtOptions = {};
-        this.isDtInitialized = false;
-        this.dtTrigger = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
     }
     ngOnInit() {
         this.obterListaProduto();
         this.dtOptions = {
             pagingType: 'full_numbers',
             pageLength: 10,
-            language: { search: "pesquisar",
-                paginate: { next: "Proximo", first: "Primeiro", last: "Ultimo", previous: "Anterior" },
+            language: { search: "Pesquisar",
+                paginate: { next: "Próximo", first: "Primeiro", last: "Último", previous: "Anterior" },
                 info: "Monstrando _START_ à _END_ de _TOTAL_ produtos",
                 lengthMenu: "",
                 zeroRecords: "Tabela vazia",
@@ -709,18 +695,15 @@ class ListagemComponent {
     obterListaProduto() {
         this.produtoService.obterListaProduto().then((lista) => {
             this.listaProduto = lista;
-            console.log(this.listaProduto);
         });
     }
     apagarProduto() {
         this.produtoService.apagarProdutoPorId(this.idproduto)
             .then(mensagem => {
-            console.log("deletar sucesso", this.idproduto, mensagem);
             this.obterListaProduto();
             this.closeModal();
         })
             .catch(mensagem => {
-            console.log("deletar erro", this.idproduto, mensagem);
             this.closeModal();
         });
     }
@@ -737,11 +720,8 @@ class ListagemComponent {
         instance.close();
         window.location.reload();
     }
-    GetCar() {
-        window.location.reload();
-    }
 }
-ListagemComponent.ɵfac = function ListagemComponent_Factory(t) { return new (t || ListagemComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_produto_service__WEBPACK_IMPORTED_MODULE_3__["ProdutoService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"])); };
+ListagemComponent.ɵfac = function ListagemComponent_Factory(t) { return new (t || ListagemComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_produto_service__WEBPACK_IMPORTED_MODULE_2__["ProdutoService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"])); };
 ListagemComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ListagemComponent, selectors: [["app-listagem"]], decls: 35, vars: 2, consts: [["routerLink", "/cadastro/", 1, "btn", "btn-rigth"], [1, "row"], [1, "col", "s12"], ["datatable", "", "id", "example", 1, "table", "row-border", "hover", "responsive-table", 3, "dtOptions"], [4, "ngFor", "ngForOf"], ["id", "modal1", 1, "modal"], [1, "modal-content"], [1, "modal-footer"], [1, "blue", "btn-margin-rigth", "btn", 3, "click"], [1, "modal-close", "btn", "btn-margin-rigth", 3, "click"], [1, "btn-margin-rigth", "red", "btn-small", 3, "click"], [1, "material-icons"], [1, "btn-margin-rigth", "blue", "btn-small", 3, "routerLink"]], template: function ListagemComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Cadastrar novo produto");
@@ -806,7 +786,7 @@ ListagemComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefine
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("dtOptions", ctx.dtOptions);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](19);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.listaProduto);
-    } }, directives: [_angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterLinkWithHref"], angular_datatables__WEBPACK_IMPORTED_MODULE_5__["DataTableDirective"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgForOf"]], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_6__["DatePipe"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2xpc3RhZ2VtL2xpc3RhZ2VtLmNvbXBvbmVudC5jc3MifQ== */"] });
+    } }, directives: [_angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterLinkWithHref"], angular_datatables__WEBPACK_IMPORTED_MODULE_4__["DataTableDirective"], _angular_common__WEBPACK_IMPORTED_MODULE_5__["NgForOf"]], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["DatePipe"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2xpc3RhZ2VtL2xpc3RhZ2VtLmNvbXBvbmVudC5jc3MifQ== */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ListagemComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -814,7 +794,7 @@ ListagemComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefine
                 templateUrl: './listagem.component.html',
                 styleUrls: ['./listagem.component.css']
             }]
-    }], function () { return [{ type: _produto_service__WEBPACK_IMPORTED_MODULE_3__["ProdutoService"] }, { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] }]; }, null); })();
+    }], function () { return [{ type: _produto_service__WEBPACK_IMPORTED_MODULE_2__["ProdutoService"] }, { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }]; }, null); })();
 
 
 /***/ }),
